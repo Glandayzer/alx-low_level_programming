@@ -1,74 +1,47 @@
 #include "main.h"
 
-/**
- * convert_int_to_ascii - converts int to ascii
- * @n: number to convert
- * @buff: buffer storage
- * Return: it an iterator index
- */
-
-int convert_int_to_ascii(int n, char *buff)
-{
-	int quot = (n > 0) ? n : -n;
-	int it = MAX - 1;
-
-	buff[it] = EOB;
-
-	it -= 1;
-	do {
-
-		buff[it] = (quot % 10) + '0';
-		quot /= 10;
-		if (quot == 0)
-		{
-			break;
-		}
-		it--;
-
-	} while (quot > 0);
-
-	if (n < 0)
-	{
-		buff[it] = '-';
-	}
-
-	return (it);
-}
+#include <stdio.h>
 
 /**
- * print_to_98 - print numbers from n -> 98
- * @n: starting point
- * Return: void
- */
+* print_to_98 - Prints all natural numbers from n to 98
+* @n: The number to start printing from
+* Return: Always 0.
+*/
+
 void print_to_98(int n)
+
 {
-	int diff = (n < BOUND) ? 1 : -1;
-	int tmp, it;
-	char buff[MAX];
 
-	while (n != BOUND)
+	if (n <= 98)
 	{
-		tmp = n;
-
-		if (tmp < 0)
-		{
-			_putchar('-');
-			tmp = -tmp;
-		}
-		it = convert_int_to_ascii(tmp, buff);
-
-		while (buff[it])
-		{
-			_putchar(buff[it]);
-			it++;
-		}
-
-		_putchar(',');
-		_putchar(' ');
-		n += diff;
+	for (; n <= 98; n++)
+	{
+	if (n == 98)
+	{
+	printf("%d", n);
+	printf("\n");
+	break;
 	}
-
-	_putchar((BOUND / 10) % 10 + '0');
-	_putchar(BOUND % 10 + '0');
-	_putchar('\n');
+	else
+	{
+	printf("%d, ", n);
+	}
+	}
+	}
+	else
+	{
+	for (; n >= 98; n--)
+	{
+	if (n == 98)
+	{
+	printf("%d", n);
+	printf("\n");
+	break;
+	}
+	else
+	{
+	printf("%d, ", n);
+	}
+	}
+	}
 }
