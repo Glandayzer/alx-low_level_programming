@@ -1,19 +1,29 @@
 #include "main.h"
-
 /**
-* puts2 - a function that prints a string but steps one character.
-* @str: pointer to string to be printed.
-* Return: Void
-*/
+ * puts2 - function should print only one character out of two
+ * starting with the first one
+ * @str: input
+ * Return: print
+ */
 void puts2(char *str)
 {
-	int len = 0;
+	int longi = 0;
+	int t = 0;
+	char *y = str;
+	int o;
 
-	while (str[len])
-		len++;
-
-	for (; *str != '\0' && len > 0; (len -= 2), (str += 2))
-		_putchar(*str);
-
-	 _putchar('\n');
+	while (*y != '\0')
+	{
+		y++;
+		longi++;
+	}
+	t = longi - 1;
+	for (o = 0 ; o <= t ; o++)
+	{
+		if (o % 2 == 0)
+	{
+		_putchar(str[o]);
+	}
+	}
+	_putchar('\n');
 }
